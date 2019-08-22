@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.codefun.R;
+import com.codefun.common.util.DateAndTimeUtil;
 import com.codefun.news.model.Article;
 
 import java.util.List;
@@ -43,7 +44,8 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
         viewHolder.mAuthorName.setText(mArticleList.get(position).getAuthor());
         viewHolder.mTitle.setText(mArticleList.get(position).getTitle());
         viewHolder.mDescription.setText(mArticleList.get(position).getDescription());
-        viewHolder.mPublishedDate.setText(mArticleList.get(position).getPublishedAt());
+        viewHolder.mPublishedDate.setText(DateAndTimeUtil.uiDisplayDateFormat(mArticleList
+                .get(position).getPublishedAt()));
         viewHolder.mContent.setText(mArticleList.get(position).getContent());
 
         RequestOptions requestOptionsHospitalBanner = new RequestOptions();
