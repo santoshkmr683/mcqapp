@@ -12,7 +12,7 @@ public abstract class APICallback<T> implements Callback<T> {
 
     private Context mContext;
 
-    public APICallback(Context context) {
+    protected APICallback(Context context) {
         mContext = context;
     }
 

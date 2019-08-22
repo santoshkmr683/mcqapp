@@ -64,7 +64,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
     }
 
     public interface RecyclerItemClickListener {
-        void onItemClick();
+        void onItemClick(String url);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -84,6 +84,8 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
             mPublishedDate = itemView.findViewById(R.id.published_date);
             mContent = itemView.findViewById(R.id.content);
             mImageView = itemView.findViewById(R.id.image_view);
+            itemView.setOnClickListener(v -> mRecyclerItemClickListener
+                    .onItemClick(mArticleList.get(getAdapterPosition()).getUrl()));
         }
     }
 }

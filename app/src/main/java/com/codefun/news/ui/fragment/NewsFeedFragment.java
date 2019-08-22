@@ -1,6 +1,7 @@
 package com.codefun.news.ui.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.codefun.R;
+import com.codefun.common.ui.activity.WebViewActivity;
 import com.codefun.common.ui.fragment.BaseFragment;
+import com.codefun.common.util.Constant;
 import com.codefun.news.model.NewsResponse;
 import com.codefun.news.presenter.NewDetailsPresenter;
 import com.codefun.news.ui.adapter.NewsListAdapter;
@@ -79,7 +82,12 @@ public class NewsFeedFragment extends BaseFragment implements NewsDetailsView,
     }
 
     @Override
-    public void onItemClick() {
+    public void onItemClick(String url) {
+        if (url != null && !url.isEmpty()) {
+            Intent intent = new Intent(getActivity(), WebViewActivity.class);
+            intent.putExtra(Constant.KEY_URL, url);
+            startActivity(intent);
+        }
 
     }
 }
