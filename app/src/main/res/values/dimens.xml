@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- margin padding in dp -->
     <dimen name="margin_padding_5dp">5dp</dimen>
     <dimen name="margin_padding_10dp">10dp</dimen>
     <dimen name="margin_padding_20dp">20dp</dimen>
     <dimen name="margin_padding_32dp">32dp</dimen>
+
+    <!-- text size in sp -->
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_15sp">15sp</dimen>
 </resources>

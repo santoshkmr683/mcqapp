@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,7 +22,7 @@ import com.codefun.news.ui.adapter.NewsListAdapter;
 import com.codefun.news.view.NewsDetailsView;
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link BaseFragment} subclass.
  */
 public class NewsFeedFragment extends BaseFragment implements NewsDetailsView,
         NewsListAdapter.RecyclerItemClickListener {
