@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.codefun.R;
-import com.codefun.TestActivity;
+import com.codefun.news.ui.activity.NewsFeedActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -28,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, TestActivity.class));
+                startActivity(new Intent(SplashActivity.this, NewsFeedActivity.class));
                 finish();
             }
         }, 1500);

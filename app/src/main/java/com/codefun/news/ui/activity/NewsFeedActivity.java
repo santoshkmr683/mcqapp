@@ -5,14 +5,15 @@ import android.os.Bundle;
 import com.codefun.R;
 import com.codefun.common.ui.activity.BaseActivity;
 import com.codefun.common.util.FragmentHelper;
-import com.codefun.news.ui.fragment.NewsFeedFragment;
+import com.codefun.questionanswer.ui.fragment.InputOutputFragment;
 
 public class NewsFeedActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FragmentHelper.replaceFragment(this, NewsFeedFragment.newInstance(), R.id.fragment_container);
+        //FragmentHelper.replaceFragment(this, NewsFeedFragment.newInstance(), R.id.fragment_container);
+        FragmentHelper.replaceFragment(this, InputOutputFragment.newInstance(), R.id.fragment_container);
     }
 
     @Override

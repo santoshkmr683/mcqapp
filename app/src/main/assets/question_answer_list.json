@@ -48,5 +48,10 @@
     "SerialNo": 10,
     "Question": "What is Java?",
     "Answer": "Java is a high level programming language"
+  },
+  {
+    "SerialNo": 10,
+    "Question": "What is Java?",
+    "Answer": "package google;\n\npublic class Model {\n\t\n\tString name;\n\tpublic String getName() {\n\t\treturn name;\n\t}\n\tpublic void setName(String name) {\n\t\tthis.name = name;\n\t}\n\tpublic int getRollNo() {\n\t\treturn rollNo;\n\t}\n\tpublic void setRollNo(int rollNo) {\n\t\tthis.rollNo = rollNo;\n\t}\n\tint rollNo;\n\t\n}\n"
   }
 ]
