@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".common.ui.activity.WebViewActivity"></activity>
+        <activity android:name=".TestActivity" />
+        <activity android:name=".common.ui.activity.WebViewActivity" />
         <activity android:name=".common.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
