@@ -10,5 +10,6 @@
     <!-- text size in sp -->
     <dimen name="text_size_12sp">12sp</dimen>
     <dimen name="text_size_15sp">15sp</dimen>
+    <dimen name="text_size_25sp">25sp</dimen>
     <dimen name="text_size_30sp">30sp</dimen>
 </resources>

@@ -3,9 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.codefun">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".questionanswer.ui.activity.QuestionAnswerActivity"></activity>
         <activity android:name=".TestActivity" />
         <activity android:name=".common.ui.activity.WebViewActivity" />
         <activity android:name=".common.ui.activity.SplashActivity">
@@ -26,5 +24,9 @@
         <activity android:name=".common.ui.activity.HomeActivity" />
         <activity android:name=".news.ui.activity.NewsFeedActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

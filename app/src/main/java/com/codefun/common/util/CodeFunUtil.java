@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 
 import com.codefun.questionanswer.model.InputOutputQuesAns;
+import com.codefun.questionanswer.model.MCQ;
 import com.codefun.questionanswer.model.QuestionAnswer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -60,5 +61,24 @@ public class CodeFunUtil {
             e.printStackTrace();
         }
         return inputOutputQuesAnsList;
+    }
+
+    public static List<MCQ> getMcqQuesAnsList(Context context) {
+
+        List<MCQ> mcqList = null;
+        String questionAnswer;
+        try {
+            questionAnswer = AssetJSONFile(Constant.JsonFile.MCQ_LIST, context);
+
+            if (!questionAnswer.isEmpty()) {
+                Gson gson = new Gson();
+                Type listType = new TypeToken<List<MCQ>>() {
+                }.getType();
+                mcqList = gson.fromJson(questionAnswer, listType);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return mcqList;
     }
 }
