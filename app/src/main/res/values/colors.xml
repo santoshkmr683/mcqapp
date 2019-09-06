@@ -9,5 +9,7 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="colorAppTheme">#053C6D</color>
+    <color name="colorAppTheme_80_percent_transparent">#CC053C6D</color>
     <color name="warmGreyWith30PercentOpacity">#4D9b9b9b</color>
+    <color name="error_red">#F4511E</color>
 </resources>

@@ -1,0 +1,227 @@
+[
+  {
+    "Question": "Which is a reserved word in the Java programming language?",
+    "OptionList": [
+      {
+        "SerialNo": "A",
+        "CorrectAns": false,
+        "OptionContent": "method"
+      },
+      {
+        "SerialNo": "B",
+        "CorrectAns": true,
+        "OptionContent": "native"
+      },
+      {
+        "SerialNo": "C",
+        "CorrectAns": false,
+        "OptionContent": "subclasses"
+      },
+      {
+        "SerialNo": "D",
+        "CorrectAns": false,
+        "OptionContent": "reference"
+      }
+    ]
+  },
+  {
+    "Question": "Which is a valid keyword in java?",
+    "OptionList": [
+      {
+        "SerialNo": "A",
+        "CorrectAns": true,
+        "OptionContent": "interface"
+      },
+      {
+        "SerialNo": "B",
+        "CorrectAns": false,
+        "OptionContent": "string"
+      },
+      {
+        "SerialNo": "C",
+        "CorrectAns": false,
+        "OptionContent": "Float"
+      },
+      {
+        "SerialNo": "D",
+        "CorrectAns": false,
+        "OptionContent": "unsigned"
+      }
+    ]
+  },
+  {
+    "Question": "Which one is a valid declaration of a boolean?",
+    "OptionList": [
+      {
+        "SerialNo": "A",
+        "CorrectAns": false,
+        "OptionContent": "boolean b1 = 0;"
+      },
+      {
+        "SerialNo": "B",
+        "CorrectAns": false,
+        "OptionContent": "boolean b2 = 'false';"
+      },
+      {
+        "SerialNo": "C",
+        "CorrectAns": true,
+        "OptionContent": "boolean b3 = false;"
+      },
+      {
+        "SerialNo": "D",
+        "CorrectAns": false,
+        "OptionContent": "boolean b5 = no;"
+      }
+    ]
+  },
+  {
+    "Question": "Which is a valid declarations of a String?",
+    "OptionList": [
+      {
+        "SerialNo": "A",
+        "CorrectAns": true,
+        "OptionContent": "String s1 = null;"
+      },
+      {
+        "SerialNo": "B",
+        "CorrectAns": false,
+        "OptionContent": "String s2 = 'null';"
+      },
+      {
+        "SerialNo": "C",
+        "CorrectAns": false,
+        "OptionContent": "String s3 = (String) 'abc';"
+      },
+      {
+        "SerialNo": "D",
+        "CorrectAns": false,
+        "OptionContent": "String s4 = (String) '\\ufeed';"
+      }
+    ]
+  },
+  {
+    "Question": "Which of these class is superclass of String and StringBuffer class?",
+    "OptionList": [
+      {
+        "SerialNo": "A",
+        "CorrectAns": false,
+        "OptionContent": "java.util"
+      },
+      {
+        "SerialNo": "B",
+        "CorrectAns": true,
+        "OptionContent": "java.lang"
+      },
+      {
+        "SerialNo": "C",
+        "CorrectAns": false,
+        "OptionContent": "ArrayList"
+      },
+      {
+        "SerialNo": "D",
+        "CorrectAns": false,
+        "OptionContent": "None of the mentioned"
+      }
+    ]
+  },
+  {
+    "Question": "Which of these operators can be used to concatenate two or more String objects?",
+    "OptionList": [
+      {
+        "SerialNo": "A",
+        "CorrectAns": true,
+        "OptionContent": "+"
+      },
+      {
+        "SerialNo": "B",
+        "CorrectAns": false,
+        "OptionContent": "+="
+      },
+      {
+        "SerialNo": "C",
+        "CorrectAns": false,
+        "OptionContent": "&"
+      },
+      {
+        "SerialNo": "D",
+        "CorrectAns": false,
+        "OptionContent": "||"
+      }
+    ]
+  },
+  {
+    "Question": "Which of these method of class String is used to obtain length of String object?",
+    "OptionList": [
+      {
+        "SerialNo": "A",
+        "CorrectAns": false,
+        "OptionContent": "get()"
+      },
+      {
+        "SerialNo": "B",
+        "CorrectAns": false,
+        "OptionContent": "Sizeof()"
+      },
+      {
+        "SerialNo": "C",
+        "CorrectAns": false,
+        "OptionContent": "lengthof()"
+      },
+      {
+        "SerialNo": "D",
+        "CorrectAns": true,
+        "OptionContent": "length()"
+      }
+    ]
+  },
+  {
+    "Question": "Which of these method of class String is used to extract a single character from a String object?",
+    "OptionList": [
+      {
+        "SerialNo": "A",
+        "CorrectAns": false,
+        "OptionContent": "CHARAT()"
+      },
+      {
+        "SerialNo": "B",
+        "CorrectAns": false,
+        "OptionContent": "charat()"
+      },
+      {
+        "SerialNo": "C",
+        "CorrectAns": true,
+        "OptionContent": "charAt()"
+      },
+      {
+        "SerialNo": "D",
+        "CorrectAns": false,
+        "OptionContent": "ChatAt()"
+      }
+    ]
+  },
+  {
+    "Question": "Which of these constructors is used to create an empty String object?",
+    "OptionList": [
+      {
+        "SerialNo": "A",
+        "CorrectAns": true,
+        "OptionContent": "String()"
+      },
+      {
+        "SerialNo": "B",
+        "CorrectAns": false,
+        "OptionContent": "String(void)"
+      },
+      {
+        "SerialNo": "C",
+        "CorrectAns": false,
+        "OptionContent": "String(0)"
+      },
+      {
+        "SerialNo": "D",
+        "CorrectAns": false,
+        "OptionContent": "None of the mentioned"
+      }
+    ]
+  }
+]

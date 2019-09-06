@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,11 @@ import android.widget.TextView;
 
 import com.codefun.R;
 import com.codefun.common.ui.fragment.BaseFragment;
+import com.codefun.common.util.CodeFunUtil;
+import com.codefun.questionanswer.model.InputOutputQuesAns;
+import com.codefun.questionanswer.ui.adapter.InputOutputAnswerAdapter;
+
+import java.util.List;
 
 import br.tiagohm.codeview.CodeView;
 import br.tiagohm.codeview.HightlightJs;
@@ -19,11 +27,17 @@ import br.tiagohm.codeview.HightlightJs;
 /**
  * A simple {@link BaseFragment} subclass.
  */
-public class InputOutputFragment extends BaseFragment {
+public class InputOutputFragment extends BaseFragment implements
+        InputOutputAnswerAdapter.AdapterItemClickListener {
 
     private TextView mQuestion;
     private CodeView mQuesCode;
     private View mRootLayout;
+    private RecyclerView mRecyclerView;
+    private List<InputOutputQuesAns> mInputOutputQuesAnsList;
+
+    private String[] serialNo = {"A", "B", "C", "D"};
+    private String[] content = {"343123", "265452", "2356456", "3245356"};
 
 
     public InputOutputFragment() {
@@ -57,40 +71,33 @@ public class InputOutputFragment extends BaseFragment {
     }
 
     private void initView(View view) {
-
+        mInputOutputQuesAnsList = CodeFunUtil.getInputOutputQuesAnsList(getContext());
         mRootLayout = view.findViewById(R.id.root_layout);
         mQuestion = view.findViewById(R.id.question_tv);
         mQuesCode = view.findViewById(R.id.code_view);
+        mRecyclerView = view.findViewById(R.id.recycler_view);
 
-        mQuestion.setText("What is Java?");
+        mQuestion.setText(mInputOutputQuesAnsList.get(0).getQuesHeading());
         mQuesCode.setSyntaxHighlighter(new HightlightJs())
-                .setCode("package google;\n" +
-                        "\n" +
-                        "public class Model {\n" +
-                        "\t\n" +
-                        "\tString name;\n" +
-                        "\tpublic String getName() {\n" +
-                        "\t\treturn name;\n" +
-                        "\t}\n" +
-                        "\tpublic void setName(String name) {\n" +
-                        "\t\tthis.name = name;\n" +
-                        "\t}\n" +
-                        "\tpublic int getRollNo() {\n" +
-                        "\t\treturn rollNo;\n" +
-                        "\t}\n" +
-                        "\tpublic void setRollNo(int rollNo) {\n" +
-                        "\t\tthis.rollNo = rollNo;\n" +
-                        "\t}\n" +
-                        "\tint rollNo;\n" +
-                        "\t\n" +
-                        "}\n")
+                .setCode(mInputOutputQuesAnsList.get(0).getQuesCodeBody())
                 //HightlightJs.Languages.AUTO is slow!!!
                 .setLanguage(HightlightJs.Languages.JAVA)
                 .setTheme(HightlightJs.Themes.DEFAULT)
                 .setShowLineNumber(false)
                 .setTextSize(12)
                 .apply();
+        setRecyclerViewData();
+    }
 
+    private void setRecyclerViewData() {
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setAdapter(new InputOutputAnswerAdapter(getContext(), mInputOutputQuesAnsList.get(0).getOptionList(), this));
+    }
+
+    @Override
+    public void onItemClick() {
         Snackbar snackbar = Snackbar.make(mRootLayout, "Correct", Snackbar.LENGTH_LONG);
         snackbar.show();
     }

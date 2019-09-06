@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".questionanswer.ui.fragment.InputOutputFragment">
 
-    <TextView
-        android:id="@+id/question_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Question" />
-
-    <br.tiagohm.codeview.CodeView
-        android:id="@+id/code_view"
+    <LinearLayout
+        android:id="@+id/root_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Test" />
+        android:orientation="vertical"
+        android:paddingStart="@dimen/margin_padding_10dp"
+        android:paddingEnd="@dimen/margin_padding_10dp">
 
+        <TextView
+            android:id="@+id/question_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_10dp"
+            android:layout_marginBottom="@dimen/margin_padding_10dp"
+            android:text="Java Code" />
 
-</LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_padding_10dp"
+            android:background="@color/warmGreyWith30PercentOpacity" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none" />
+
+        <br.tiagohm.codeview.CodeView
+            android:id="@+id/code_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
