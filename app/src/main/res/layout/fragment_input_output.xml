@@ -21,6 +21,11 @@
             android:layout_marginBottom="@dimen/margin_padding_10dp"
             android:text="Java Code" />
 
+        <br.tiagohm.codeview.CodeView
+            android:id="@+id/code_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -32,10 +37,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none" />
-
-        <br.tiagohm.codeview.CodeView
-            android:id="@+id/code_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

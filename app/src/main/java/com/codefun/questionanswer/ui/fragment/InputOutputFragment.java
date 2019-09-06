@@ -17,7 +17,7 @@ import com.codefun.R;
 import com.codefun.common.ui.fragment.BaseFragment;
 import com.codefun.common.util.CodeFunUtil;
 import com.codefun.questionanswer.model.InputOutputQuesAns;
-import com.codefun.questionanswer.ui.adapter.InputOutputAnswerAdapter;
+import com.codefun.questionanswer.ui.adapter.AnswerOptionAdapter;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ import br.tiagohm.codeview.HightlightJs;
  * A simple {@link BaseFragment} subclass.
  */
 public class InputOutputFragment extends BaseFragment implements
-        InputOutputAnswerAdapter.AdapterItemClickListener {
+        AnswerOptionAdapter.AdapterItemClickListener {
 
     private TextView mQuestion;
     private CodeView mQuesCode;
@@ -93,7 +93,7 @@ public class InputOutputFragment extends BaseFragment implements
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setAdapter(new InputOutputAnswerAdapter(getContext(), mInputOutputQuesAnsList.get(0).getOptionList(), this));
+        mRecyclerView.setAdapter(new AnswerOptionAdapter(getContext(), mInputOutputQuesAnsList.get(0).getOptionList(), this));
     }
 
     @Override

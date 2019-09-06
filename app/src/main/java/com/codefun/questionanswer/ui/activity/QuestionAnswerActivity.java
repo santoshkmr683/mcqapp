@@ -13,6 +13,7 @@ public class QuestionAnswerActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FragmentHelper.replaceFragment(this, McqFragment.newInstance(), R.id.fragment_container);
+        //FragmentHelper.replaceFragment(this, InputOutputFragment.newInstance(), R.id.fragment_container);
     }
 
     @Override

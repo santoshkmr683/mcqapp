@@ -16,7 +16,7 @@ import com.codefun.questionanswer.model.MCQ;
 import java.util.List;
 
 public class QuestionListAdapter extends RecyclerView
-        .Adapter<QuestionListAdapter.ViewHolder> implements InputOutputAnswerAdapter.AdapterItemClickListener {
+        .Adapter<QuestionListAdapter.ViewHolder> implements AnswerOptionAdapter.AdapterItemClickListener {
 
     private Context mContext;
     private List<MCQ> mMcqList;
@@ -41,7 +41,7 @@ public class QuestionListAdapter extends RecyclerView
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mContext);
         viewHolder.recyclerView.setLayoutManager(mLayoutManager);
         viewHolder.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        viewHolder.recyclerView.setAdapter(new InputOutputAnswerAdapter(mContext, mMcqList
+        viewHolder.recyclerView.setAdapter(new AnswerOptionAdapter(mContext, mMcqList
                 .get(position).getOptionList(), this));
 
     }

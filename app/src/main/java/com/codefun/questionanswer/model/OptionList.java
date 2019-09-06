@@ -13,6 +13,8 @@ public class OptionList {
     @SerializedName("OptionContent")
     private String optionContent;
 
+    private boolean isSelected;
+
     public String getSerialNo() {
         return serialNo;
     }
@@ -35,5 +37,13 @@ public class OptionList {
 
     public void setOptionContent(String optionContent) {
         this.optionContent = optionContent;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 }
