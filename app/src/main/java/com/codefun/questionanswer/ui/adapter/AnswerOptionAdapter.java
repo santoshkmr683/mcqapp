@@ -41,12 +41,9 @@ public class AnswerOptionAdapter extends RecyclerView
         viewHolder.ansSerialNo.setText(mOptionList.get(position).getSerialNo());
         viewHolder.ansContent.setText(mOptionList.get(position).getOptionContent());
 
-        if (mOptionList.get(position).isSelected() && mOptionList.get(position).isCorrectAns()) {
+        if (mOptionList.get(position).isSelected()) {
             viewHolder.ansRootLayout.setBackgroundColor(mContext.getResources()
                     .getColor(R.color.colorAppTheme_80_percent_transparent));
-        } else if (mOptionList.get(position).isSelected() && !mOptionList.get(position).isCorrectAns()) {
-            viewHolder.ansRootLayout.setBackgroundColor(mContext.getResources()
-                    .getColor(R.color.error_red));
         } else {
             viewHolder.ansRootLayout.setBackgroundColor(Color.TRANSPARENT);
         }

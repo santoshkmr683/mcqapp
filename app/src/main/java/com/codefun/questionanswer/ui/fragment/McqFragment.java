@@ -48,10 +48,10 @@ public class McqFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //initView(view);
+        initView(view);
         showToolbar();
         setToolbarTitle("MCQ Question Quiz");
-        ScoreDisplayDialogFragment.newInstance().show(getActivity().getSupportFragmentManager(), "info dialog");
+        //ScoreDisplayDialogFragment.newInstance().show(getActivity().getSupportFragmentManager(), "info dialog");
     }
 
     private void initView(View view) {
