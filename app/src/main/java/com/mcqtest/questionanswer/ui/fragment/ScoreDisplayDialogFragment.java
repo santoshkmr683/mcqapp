@@ -2,7 +2,6 @@ package com.mcqtest.questionanswer.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,24 +13,20 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.mcqtest.R;
+import com.mcqtest.common.util.Bus;
 import com.mcqtest.common.util.Constant;
 
 public class ScoreDisplayDialogFragment extends DialogFragment {
 
     private int mTotalQuestion;
     private int mTotalScore;
-    private DialogFragmentInteractionListener mDialogFragmentInteractionListener;
 
-
-    public static ScoreDisplayDialogFragment newInstance(
-            int totalQuestion, int totalScore,
-            DialogFragmentInteractionListener dialogFragmentInteractionListener) {
+    public static ScoreDisplayDialogFragment newInstance(int totalQuestion, int totalScore) {
 
         Bundle args = new Bundle();
         args.putInt(Constant.TOTAL_QUESTION, totalQuestion);
         args.putInt(Constant.TOTAL_SCORE, totalScore);
         ScoreDisplayDialogFragment fragment = new ScoreDisplayDialogFragment();
-        fragment.setListener(dialogFragmentInteractionListener);
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,10 +55,6 @@ public class ScoreDisplayDialogFragment extends DialogFragment {
         }
     }
 
-    private void setListener(DialogFragmentInteractionListener dialogFragmentInteractionListener) {
-        this.mDialogFragmentInteractionListener = dialogFragmentInteractionListener;
-    }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -84,15 +75,11 @@ public class ScoreDisplayDialogFragment extends DialogFragment {
 
         view.findViewById(R.id.ok_btn).setOnClickListener(v -> {
             getDialog().dismiss();
-           /* if (mDialogFragmentInteractionListener != null){
-                mDialogFragmentInteractionListener.onOkButtonClick();
-            }*/
-           getActivity().finish();
+           if (getActivity() != null) {
+               Bus.postScoreOkClickEvent(String.format("%d/%d", mTotalScore, mTotalQuestion));
+               getActivity().onBackPressed();
+           }
         });
     }
 
-    public interface DialogFragmentInteractionListener {
-
-        void onOkButtonClick();
-    }
 }

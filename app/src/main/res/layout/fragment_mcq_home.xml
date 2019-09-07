@@ -28,6 +28,7 @@
         android:textSize="@dimen/text_size_15sp"
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
+        android:text="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

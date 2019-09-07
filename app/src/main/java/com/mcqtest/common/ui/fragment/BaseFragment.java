@@ -14,7 +14,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.mcqtest.R;
-import com.mcqtest.common.view.BaseView;
 
 /**
  * A simple {@link Fragment} subclass.

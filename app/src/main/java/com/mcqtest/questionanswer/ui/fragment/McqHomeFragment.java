@@ -13,6 +13,10 @@ import android.widget.TextView;
 
 import com.mcqtest.R;
 import com.mcqtest.common.ui.fragment.BaseFragment;
+import com.mcqtest.common.util.Bus;
+import com.mcqtest.common.util.ScoreOkClickEvent;
+
+import org.greenrobot.eventbus.Subscribe;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +50,11 @@ public class McqHomeFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bus.register(this);
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -70,6 +79,20 @@ public class McqHomeFragment extends BaseFragment {
             }
 
         });
+    }
+
+    @Subscribe
+    public void onGetObtainScore(ScoreOkClickEvent scoreOkClickEvent) {
+        if (mObtainScoreTv != null) {
+            mObtainScoreTv.setText(scoreOkClickEvent.getScore());
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Bus.unregister(this);
+        mFragmentInteractionListener = null;
     }
 
     public interface FragmentInteractionListener {

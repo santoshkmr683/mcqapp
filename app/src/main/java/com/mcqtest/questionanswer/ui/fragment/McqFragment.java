@@ -23,8 +23,7 @@ import java.util.List;
  * A simple {@link BaseFragment} subclass.
  */
 public class McqFragment extends BaseFragment implements
-        QuestionListAdapter.AdapterSubmitClickListener,
-        ScoreDisplayDialogFragment.DialogFragmentInteractionListener {
+        QuestionListAdapter.AdapterSubmitClickListener {
 
 
     public McqFragment() {
@@ -78,16 +77,9 @@ public class McqFragment extends BaseFragment implements
                     }
                 }
             }
-            ScoreDisplayDialogFragment.newInstance(mcqList.size(), totalScore,
-                    this).show(getActivity()
+            ScoreDisplayDialogFragment.newInstance(mcqList.size(), totalScore).show(getActivity()
                     .getSupportFragmentManager(), "score dialog");
         }
     }
 
-    @Override
-    public void onOkButtonClick() {
-        if (getActivity() != null){
-            getActivity().finish();
-        }
-    }
 }
