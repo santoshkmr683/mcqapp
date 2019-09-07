@@ -19,13 +19,10 @@ public class AnswerOptionAdapter extends RecyclerView
 
     private Context mContext;
     private List<OptionList> mOptionList;
-    private AdapterItemClickListener mAdapterItemClickListener;
 
-    public AnswerOptionAdapter(Context context, List<OptionList> optionList,
-                               AdapterItemClickListener adapterItemClickListener) {
+    AnswerOptionAdapter(Context context, List<OptionList> optionList) {
         this.mContext = context;
         this.mOptionList = optionList;
-        this.mAdapterItemClickListener = adapterItemClickListener;
     }
 
     @NonNull
@@ -52,10 +49,6 @@ public class AnswerOptionAdapter extends RecyclerView
     @Override
     public int getItemCount() {
         return mOptionList.size();
-    }
-
-    public interface AdapterItemClickListener {
-        void onItemClick();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

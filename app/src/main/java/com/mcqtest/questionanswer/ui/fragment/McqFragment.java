@@ -11,15 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mcqtest.questionanswer.ui.adapter.QuestionListAdapter;
 import com.mcqtest.R;
 import com.mcqtest.common.ui.fragment.BaseFragment;
 import com.mcqtest.common.util.McqUtil;
+import com.mcqtest.questionanswer.model.MCQ;
+import com.mcqtest.questionanswer.ui.adapter.QuestionListAdapter;
+
+import java.util.List;
 
 /**
  * A simple {@link BaseFragment} subclass.
  */
-public class McqFragment extends BaseFragment {
+public class McqFragment extends BaseFragment implements QuestionListAdapter.AdapterSubmitClickListener {
 
     private RecyclerView mRecyclerView;
 
@@ -51,7 +54,6 @@ public class McqFragment extends BaseFragment {
         initView(view);
         showToolbar();
         setToolbarTitle("MCQ Question Quiz");
-        //ScoreDisplayDialogFragment.newInstance().show(getActivity().getSupportFragmentManager(), "info dialog");
     }
 
     private void initView(View view) {
@@ -60,6 +62,14 @@ public class McqFragment extends BaseFragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(new QuestionListAdapter(getContext(), McqUtil
-                .getMcqQuesAnsList(getContext())));
+                .getMcqQuesAnsList(getContext()), this));
+    }
+
+    @Override
+    public void onSubmitButtonClick(List<MCQ> mcqList) {
+        if (getActivity() != null) {
+            ScoreDisplayDialogFragment.newInstance().show(getActivity()
+                    .getSupportFragmentManager(), "score dialog");
+        }
     }
 }
