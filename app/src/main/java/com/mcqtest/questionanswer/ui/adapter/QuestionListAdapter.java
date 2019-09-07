@@ -55,10 +55,7 @@ public class QuestionListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             itemViewHolder.recyclerView.setItemAnimator(new DefaultItemAnimator());
             itemViewHolder.recyclerView.setAdapter(new AnswerOptionAdapter(mContext, mMcqList
                     .get(position).getOptionList()));
-        } else if (viewHolder instanceof FooterViewHolder) {
-            FooterViewHolder footerViewHolder = (FooterViewHolder) viewHolder;
         }
-
     }
 
     @Override

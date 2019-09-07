@@ -16,17 +16,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/ok_btn"
-        android:layout_marginTop="@dimen/margin_padding_20dp"
-        android:layout_marginBottom="@dimen/margin_padding_20dp"
-        android:background="@drawable/button_bg"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/ok"
-        android:textColor="@color/colorWhite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <LinearLayout
         android:layout_marginTop="@dimen/margin_padding_10dp"
         android:paddingStart="@dimen/margin_padding_20dp"
@@ -86,5 +75,16 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/ok_btn"
+        android:layout_marginTop="@dimen/margin_padding_20dp"
+        android:layout_marginBottom="@dimen/margin_padding_20dp"
+        android:background="@drawable/button_bg"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/ok"
+        android:textColor="@color/colorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
