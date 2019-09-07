@@ -8,8 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="HorizontalWebViewProgressBarStyle" parent="Theme.AppCompat">
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="fragment_root_layout_style">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
 </resources>

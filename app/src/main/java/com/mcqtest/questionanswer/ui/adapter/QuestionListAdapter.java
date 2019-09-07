@@ -19,8 +19,8 @@ public class QuestionListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private Context mContext;
     private List<MCQ> mMcqList;
-    private static final int TYPE_ITEM = 0;
-    private static final int TYPE_FOOTER = 1;
+    private static final int TYPE_ITEM = 1;
+    private static final int TYPE_FOOTER = 2;
     private AdapterSubmitClickListener mAdapterSubmitClickListener;
 
     public QuestionListAdapter(Context context, List<MCQ> mcqList,
@@ -60,12 +60,12 @@ public class QuestionListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemCount() {
-        return mMcqList.size();
+        return mMcqList.size()+1;
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (position == (mMcqList.size() - 1)) {
+        if (mMcqList.size() == position) {
             return TYPE_FOOTER;
         } else {
             return TYPE_ITEM;

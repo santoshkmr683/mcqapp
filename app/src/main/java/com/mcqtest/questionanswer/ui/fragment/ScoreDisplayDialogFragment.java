@@ -1,6 +1,8 @@
 package com.mcqtest.questionanswer.ui.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,19 +14,24 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.mcqtest.R;
+import com.mcqtest.common.util.Constant;
 
 public class ScoreDisplayDialogFragment extends DialogFragment {
 
-    private TextView mTotalQuizQues;
-    private TextView mTotalAttempted;
-    private TextView mTotalScore;
+    private int mTotalQuestion;
+    private int mTotalScore;
+    private DialogFragmentInteractionListener mDialogFragmentInteractionListener;
 
 
-    public static ScoreDisplayDialogFragment newInstance() {
+    public static ScoreDisplayDialogFragment newInstance(
+            int totalQuestion, int totalScore,
+            DialogFragmentInteractionListener dialogFragmentInteractionListener) {
 
         Bundle args = new Bundle();
-
+        args.putInt(Constant.TOTAL_QUESTION, totalQuestion);
+        args.putInt(Constant.TOTAL_SCORE, totalScore);
         ScoreDisplayDialogFragment fragment = new ScoreDisplayDialogFragment();
+        fragment.setListener(dialogFragmentInteractionListener);
         fragment.setArguments(args);
         return fragment;
     }
@@ -42,7 +49,19 @@ public class ScoreDisplayDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        getDataFromBundle();
         initView(view);
+    }
+
+    private void getDataFromBundle() {
+        if (getArguments() != null) {
+            mTotalQuestion = getArguments().getInt(Constant.TOTAL_QUESTION);
+            mTotalScore = getArguments().getInt(Constant.TOTAL_SCORE);
+        }
+    }
+
+    private void setListener(DialogFragmentInteractionListener dialogFragmentInteractionListener) {
+        this.mDialogFragmentInteractionListener = dialogFragmentInteractionListener;
     }
 
     @Override
@@ -55,11 +74,25 @@ public class ScoreDisplayDialogFragment extends DialogFragment {
         }
     }
 
+    @SuppressLint("DefaultLocale")
     private void initView(View view) {
-        mTotalQuizQues = view.findViewById(R.id.total_no_ques_value);
-        mTotalAttempted = view.findViewById(R.id.total_attempted_value);
-        mTotalScore = view.findViewById(R.id.total_score_value);
+        TextView mTotalQuizQues = view.findViewById(R.id.total_no_ques_value);
+        TextView mTotalScoreTv = view.findViewById(R.id.total_score_value);
 
-        view.findViewById(R.id.ok_btn).setOnClickListener(v -> getDialog().dismiss());
+        mTotalQuizQues.setText(String.valueOf(mTotalQuestion));
+        mTotalScoreTv.setText(String.format("%d/%d", mTotalScore, mTotalQuestion));
+
+        view.findViewById(R.id.ok_btn).setOnClickListener(v -> {
+            getDialog().dismiss();
+           /* if (mDialogFragmentInteractionListener != null){
+                mDialogFragmentInteractionListener.onOkButtonClick();
+            }*/
+           getActivity().finish();
+        });
+    }
+
+    public interface DialogFragmentInteractionListener {
+
+        void onOkButtonClick();
     }
 }

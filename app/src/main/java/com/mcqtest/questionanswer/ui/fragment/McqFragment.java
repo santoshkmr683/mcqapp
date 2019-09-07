@@ -22,9 +22,10 @@ import java.util.List;
 /**
  * A simple {@link BaseFragment} subclass.
  */
-public class McqFragment extends BaseFragment implements QuestionListAdapter.AdapterSubmitClickListener {
+public class McqFragment extends BaseFragment implements
+        QuestionListAdapter.AdapterSubmitClickListener,
+        ScoreDisplayDialogFragment.DialogFragmentInteractionListener {
 
-    private RecyclerView mRecyclerView;
 
     public McqFragment() {
         // Required empty public constructor
@@ -57,19 +58,36 @@ public class McqFragment extends BaseFragment implements QuestionListAdapter.Ada
     }
 
     private void initView(View view) {
-        mRecyclerView = view.findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setAdapter(new QuestionListAdapter(getContext(), McqUtil
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(new QuestionListAdapter(getContext(), McqUtil
                 .getMcqQuesAnsList(getContext()), this));
     }
 
     @Override
     public void onSubmitButtonClick(List<MCQ> mcqList) {
         if (getActivity() != null) {
-            ScoreDisplayDialogFragment.newInstance().show(getActivity()
+            int totalScore = 0;
+            for (int i = 0; i < mcqList.size(); i++) {
+                for (int j = 0; j < mcqList.get(i).getOptionList().size(); j++) {
+                    if (mcqList.get(i).getOptionList().get(j).isCorrectAns() &&
+                            mcqList.get(i).getOptionList().get(j).isSelected()) {
+                        totalScore++;
+                    }
+                }
+            }
+            ScoreDisplayDialogFragment.newInstance(mcqList.size(), totalScore,
+                    this).show(getActivity()
                     .getSupportFragmentManager(), "score dialog");
+        }
+    }
+
+    @Override
+    public void onOkButtonClick() {
+        if (getActivity() != null){
+            getActivity().finish();
         }
     }
 }
