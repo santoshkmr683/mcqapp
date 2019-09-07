@@ -5,6 +5,7 @@
     <dimen name="margin_padding_5dp">5dp</dimen>
     <dimen name="margin_padding_10dp">10dp</dimen>
     <dimen name="margin_padding_20dp">20dp</dimen>
+    <dimen name="margin_padding_25dp">25</dimen>
     <dimen name="margin_padding_32dp">32dp</dimen>
 
     <!-- text size in sp -->

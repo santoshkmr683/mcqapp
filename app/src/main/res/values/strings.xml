@@ -14,5 +14,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="submit">Submit</string>
+    <string name="total_quiz_ques">Total Quiz Ques</string>
+    <string name="total_attempted_ques">Total Attempted Ques</string>
+    <string name="total_score">Total Score</string>
+    <string name="java_score">Java Score</string>
+    <string name="ok">OK</string>
 
 </resources>
